@@ -19,10 +19,23 @@
 
 angular.module('bl.ng.rest.model', [])
 
-.factory('BlRestModel', function($http) {
+.factory('BlRestModel', ['$http', '$q', function($http, $q) {
     return {
         query: function(url) {
-            
+
+            var def = $q.defer();
+
+            $http.get(url).then(
+                function(response) {
+                    def.resolve(response.data);
+                },
+                function(response) {
+                    def.reject(response.data || "Model query failed.");
+                }
+            );
+
+            return def.promise();
+
         }
     }
-});
+}]);
