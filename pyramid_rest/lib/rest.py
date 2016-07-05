@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 
-# Copyright (c) 2012 - 2015, GIS-Fachstelle des Amtes fÃ¼r Geoinformation des Kantons Basel-Landschaft
+# Copyright (c) 2012 - 2015, GIS-Fachstelle des Amtes für Geoinformation des Kantons Basel-Landschaft
 # All rights reserved.
 #
 # This program is free software and completes the GeoMapFish License for the geoview.bl.ch specific
@@ -15,19 +15,19 @@
 # The above copyright notice and this permission notice shall be included in all copies or substantial
 # portions of the Software.
 import json
-from pyramid.security import view_execution_permitted
+
 import transaction
 from geoalchemy2.elements import WKBElement
-from pyramid_rest.lib.filter import Filter
-from shapely import wkt
-from sqlalchemy.exc import IntegrityError, DatabaseError
-from sqlalchemy.orm.exc import NoResultFound
 from pyramid.httpexceptions import HTTPNotFound, HTTPBadRequest, HTTPServerError
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session, scoped_session, class_mapper
-from pyramid.config import Configurator
 from pyramid.request import Request
+from shapely import wkt
+from sqlalchemy import create_engine
+from sqlalchemy.exc import IntegrityError, DatabaseError
+from sqlalchemy.orm import sessionmaker, Session, scoped_session, class_mapper
+from sqlalchemy.orm.exc import NoResultFound
 from zope.sqlalchemy import ZopeTransactionExtension
+
+from pyramid_rest.lib.filter import Filter
 
 __author__ = 'Clemens Rudert'
 __create_date__ = '29.07.2015'
