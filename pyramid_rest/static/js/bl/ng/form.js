@@ -19,24 +19,23 @@
 
 angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
 
-.controller('blNgRestFormCtrl', ['$scope', 'BlRestModel', function($scope, BlRestModel) {
-    $scope.model = {};
-    BlRestModel.query($scope.src + '/model.json').then(
-        function(response) {
-            $scope.model = response.data;
-        },
-        function(response) {
-            console.log(response.data || 'Model query failed.');
-        }
-    );
-}])
-
 .directive('blNgRestForm', function() {
     return {
         restrict: 'E',
         scope: {
             src: '@'
         },
-        template: '<p ng-repeat="field in model.columns">{{field.header}}</p>'
+        template: '<p ng-repeat="field in model.columns">{{field.header}}</p>',
+        controller: ['$scope', 'BlRestModel', function($scope, BlRestModel) {
+            $scope.model = {};
+            BlRestModel.query($scope.src + '/model.json').then(
+                function(response) {
+                    $scope.model = response.data;
+                },
+                function(response) {
+                    console.log(response.data || 'Model query failed.');
+                }
+            );
+        }]
     }
 });

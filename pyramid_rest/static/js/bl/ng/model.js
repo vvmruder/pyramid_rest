@@ -27,14 +27,14 @@ angular.module('bl.ng.rest.model', [])
 
             $http.get(url).then(
                 function(response) {
-                    def.resolve(response.data);
+                    def.resolve(response);
                 },
                 function(response) {
-                    def.reject(response.data || "Model query failed.");
+                    def.reject(response);
                 }
             );
 
-            return def.promise();
+            return def.promise;
 
         }
     }
