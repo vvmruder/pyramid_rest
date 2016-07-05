@@ -41,6 +41,10 @@ def main(global_config, **settings):
     """
     config = Configurator(settings=settings)
     config.include('pyramid_rest')
+
+    config.add_static_view('examples','pyramid_rest:examples')
+    config.add_static_view('static', 'pyramid_rest:static')
+
     config.scan()
     return config.make_wsgi_app()
 
