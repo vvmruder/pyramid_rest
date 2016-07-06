@@ -17,4 +17,14 @@
  * Created by u207027 on 05.07.16.
  */
 
-angular.module('bl.ng.rest.field', []);
+angular.module('bl.ng.rest.field', [])
+    
+.directive('blNgRestField', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            def: '='
+        },
+        templateUrl: '../static/html/bl/ng/field.html'
+    };
+});

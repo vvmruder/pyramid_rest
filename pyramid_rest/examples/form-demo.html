@@ -23,12 +23,23 @@ Created by u207027 on 05.07.16.
 <head>
     <meta charset="UTF-8">
     <title>DEMO: bl-ng-rest-form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="../static/js/bl/ng/form.js"></script>
     <script src="../static/js/bl/ng/model.js"></script>
     <script src="../static/js/bl/ng/field.js"></script>
 </head>
 <body>
-    <bl-ng-rest-form src="/examples/form-demo-data"></bl-ng-rest-form>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo form</h3>
+            </div>
+            <div class="panel-body">
+                <bl-ng-rest-form class="form-horizontal" src="/examples/form-demo-data"></bl-ng-rest-form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

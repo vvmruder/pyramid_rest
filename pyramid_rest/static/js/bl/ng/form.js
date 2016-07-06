@@ -25,7 +25,7 @@ angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
         scope: {
             src: '@'
         },
-        template: '<p ng-repeat="field in model.columns">{{field.header}}</p>',
+        templateUrl: '../static/html/bl/ng/form.html',
         controller: ['$scope', 'BlRestModel', function($scope, BlRestModel) {
             $scope.model = {};
             BlRestModel.query($scope.src + '/model.json').then(
@@ -37,5 +37,5 @@ angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
                 }
             );
         }]
-    }
+    };
 });
