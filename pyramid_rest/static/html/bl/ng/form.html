@@ -1,3 +1,19 @@
-<form action="#">
-    <bl-ng-rest-field ng-repeat="field in model.columns | filter:{pk:false}" def="field"></bl-ng-rest-field>
+<form action="#" xmlns="http://www.w3.org/1999/html" class="{{formClass}}">
+    <div class="form-group" ng-repeat="field in model.columns | filter:{pk:false}">
+        <div ng-if="field.type != 'checkbox'">
+            <label class="col-sm-4 control-label" for="{{field.column_name}}">{{ field.header || field.column_name }}</label>
+            <div class="col-sm-8">
+                <bl-ng-rest-field id="{{field.column_name}}" field-class="{{fieldClass}}" def="field"></bl-ng-rest-field>
+            </div>
+        </div>
+        <div ng-if="field.type == 'checkbox'">
+            <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                    <label>
+                        <input id="{{field.column_name}}" type="checkbox"> {{ field.header || field.column_name }}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>

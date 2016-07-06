@@ -23,7 +23,8 @@ angular.module('bl.ng.rest.field', [])
     return {
         restrict: 'E',
         scope: {
-            def: '='
+            def: '=',
+            fieldClass: '@'
         },
         templateUrl: '../static/html/bl/ng/field.html'
     };

@@ -23,7 +23,9 @@ angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
     return {
         restrict: 'E',
         scope: {
-            src: '@'
+            src: '@',
+            formClass: '@',
+            fieldClass: '@'
         },
         templateUrl: '../static/html/bl/ng/form.html',
         controller: ['$scope', 'BlRestModel', function($scope, BlRestModel) {
