@@ -1,0 +1,12 @@
+<table class="{{tableClass}}">
+    <thead>
+        <tr>
+            <th ng-repeat="col in restCols">{{ col.header || col.column_name }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in restData">
+            <td ng-repeat="col in restCols">{{ row[col.column_name] }}</td>
+        </tr>
+    </tbody>
+</table>

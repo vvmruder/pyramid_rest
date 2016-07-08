@@ -16,7 +16,7 @@ General Public License for more details.
 The above copyright notice and this permission notice shall be included in all copies or substantial
 portions of the Software.
 
-Created by u207027 on 05.07.16.
+Created by Karsten Deininger on 07.07.16.
 -->
 
 <html lang="en">
@@ -25,18 +25,18 @@ Created by u207027 on 05.07.16.
     <title>DEMO: bl-ng-rest-form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="../static/js/bl/ng/form.js"></script>
+    <script src="../static/js/bl/ng/grid.js"></script>
     <script src="../static/js/bl/ng/model.js"></script>
-    <script src="../static/js/bl/ng/field.js"></script>
+    <script src="../static/js/bl/ng/data.js"></script>
 </head>
-<body ng-app="bl.ng.rest.form">
+<body ng-app="bl.ng.rest.grid">
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Demo form</h3>
+                <h3 class="panel-title">Demo grid</h3>
             </div>
             <div class="panel-body">
-                <bl-ng-rest-form form-class="form-horizontal" field-class="form-control" service="/examples/form-demo-data"></bl-ng-rest-form>
+                <bl-ng-rest-grid table-class="table table-striped table-hover" service="/examples/grid-demo-data"></bl-ng-rest-grid>
             </div>
         </div>
     </div>

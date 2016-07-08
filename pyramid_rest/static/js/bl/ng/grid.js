@@ -14,32 +14,41 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial
  * portions of the Software.
  *
- * Created by Karsten Deininger on 05.07.16.
+ * Created by Karsten Deininger on 07.07.16.
  */
 
-angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
-    
-.controller('blNgRestFormCtrl', ['$scope', 'BlRestModel', function($scope, BlRestModel) {
-    $scope.model = {};
-    BlRestModel.query($scope.service).then(
+angular.module('bl.ng.rest.grid', ['bl.ng.rest.model', 'bl.ng.rest.data'])
+
+.controller('BlNgRestGridCtrl', ['$scope', '$q', 'BlRestModel', 'BlRestData', function($scope, $q, BlRestModel, BlRestData) {
+
+    $scope.restCols = [];
+    $scope.restData = [];
+
+    $q.all({
+        model: BlRestModel.query($scope.service),
+        read: BlRestData.read($scope.service)
+    }).then(
         function(response) {
-            $scope.model = response.data;
+            $scope.restCols = response.model.data.columns;
+            $scope.restData = response.read.data.features;
         },
         function(response) {
-            console.log(response.data || 'Model query failed.');
+            console.log(response.data || 'Query failed.');
         }
     );
+
 }])
 
-.directive('blNgRestForm', function() {
+.directive('blNgRestGrid', function() {
     return {
         restrict: 'E',
         scope: {
-            service: '@',
-            formClass: '@',
-            fieldClass: '@'
+            tableClass: '@',
+            headerClass: '@',
+            bodyClass: '@',
+            service: '@'
         },
-        templateUrl: '../static/html/bl/ng/form.html',
-        controller: 'blNgRestFormCtrl'
+        templateUrl: '../static/html/bl/ng/grid.html',
+        controller: 'BlNgRestGridCtrl'
     };
 });

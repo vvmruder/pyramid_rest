@@ -21,11 +21,11 @@ angular.module('bl.ng.rest.model', [])
 
 .factory('BlRestModel', ['$http', '$q', function($http, $q) {
     return {
-        query: function(url) {
+        query: function(service) {
 
             var def = $q.defer();
 
-            $http.get(url).then(
+            $http.get(service + '/model.json').then(
                 function(response) {
                     def.resolve(response);
                 },
@@ -37,5 +37,5 @@ angular.module('bl.ng.rest.model', [])
             return def.promise;
 
         }
-    }
+    };
 }]);

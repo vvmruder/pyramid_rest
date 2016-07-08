@@ -17,4 +17,4 @@
  * Created by Karsten Deininger on 05.07.16.
  */
 
-angular.module('bl.ng.rest', ['bl.ng.rest.model']);
+angular.module('bl.ng.rest', ['bl.ng.rest.field', 'bl.ng.rest.form', 'bl.ng.rest.grid']);

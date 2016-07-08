@@ -14,32 +14,27 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial
  * portions of the Software.
  *
- * Created by Karsten Deininger on 05.07.16.
+ * Created by Karsten Deininger on 07.07.16.
  */
 
-angular.module('bl.ng.rest.form', ['bl.ng.rest.model', 'bl.ng.rest.field'])
-    
-.controller('blNgRestFormCtrl', ['$scope', 'BlRestModel', function($scope, BlRestModel) {
-    $scope.model = {};
-    BlRestModel.query($scope.service).then(
-        function(response) {
-            $scope.model = response.data;
-        },
-        function(response) {
-            console.log(response.data || 'Model query failed.');
-        }
-    );
-}])
+angular.module('bl.ng.rest.data', [])
 
-.directive('blNgRestForm', function() {
+.factory('BlRestData', ['$http', function($http) {
     return {
-        restrict: 'E',
-        scope: {
-            service: '@',
-            formClass: '@',
-            fieldClass: '@'
+        read: function(service) {
+            return $http.get(service + '/read.json');
         },
-        templateUrl: '../static/html/bl/ng/form.html',
-        controller: 'blNgRestFormCtrl'
+        readOne: function(service, id) {
+
+        },
+        write: function(service, data) {
+
+        },
+        update: function(service, id, data) {
+
+        },
+        delete: function(service, id) {
+
+        }
     };
-});
+}]);
